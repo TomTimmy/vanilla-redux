@@ -5,19 +5,19 @@ const DELETE = "DELETE";
 
 const addToDo = (text) => {
   return {
-    text: ADD,
+    type: ADD,
     text,
   };
 };
 
-const deleteToDo = (text) => {
+const deleteToDo = (id) => {
   return {
-    text: DELETE,
+    type: DELETE,
     id,
   };
 };
 
-const reducer = (state = [], action) => {
+const reducer = (state = ["hahahahaha"], action) => {
   switch (action.type) {
     case ADD:
       return [{ text: action.text, id: Date.now() }, ...state];
@@ -28,8 +28,6 @@ const reducer = (state = [], action) => {
   }
 };
 
-const store = createStore();
-
-store.subscibe();
+const store = createStore(reducer);
 
 export default store;
